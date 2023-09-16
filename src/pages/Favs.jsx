@@ -17,7 +17,7 @@ const Favs = () => {
           ) : (
             favDentists.map((dentist) => (
               <Card
-                key={dentist.id} // Asegúrate de tener una propiedad única como key
+                key={dentist.id}
                 name={dentist.name}
                 username={dentist.username}
                 id={dentist.id}

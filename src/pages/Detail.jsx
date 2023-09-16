@@ -3,13 +3,12 @@ import { useParams } from 'react-router-dom';
 import { useGlobalContext } from '../context/Context'
 
 const Detail = () => {
-  const { id } = useParams(); // Obtener el ID del dentista desde la URL
+  const { id } = useParams();
   const [dentist, setDentist] = useState(null);
   const { state } = useGlobalContext();
 
   useEffect(() => {
-    // Realizar la solicitud para obtener los datos del dentista con el ID específico
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`) // Reemplaza con la URL de tu API para obtener un dentista
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('La solicitud no tuvo éxito');
@@ -17,7 +16,6 @@ const Detail = () => {
         return response.json();
       })
       .then((data) => {
-        // Almacena los datos del dentista en el estado
         setDentist(data);
       })
       .catch((error) => console.error('Error al obtener el dentista:', error));

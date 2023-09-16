@@ -18,7 +18,6 @@ function Form({ onFormSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Realiza validaciones aquí
     const errors = {};
 
     if (formData.nombre.length <= 5) {
@@ -30,11 +29,9 @@ function Form({ onFormSubmit }) {
     }
 
     if (Object.keys(errors).length === 0) {
-      // No hay errores, enviar el formulario
       onFormSubmit(formData);
       setFormErrors({});
     } else {
-      // Hay errores, mostrar mensajes de error
       setFormErrors(errors);
     }
   };
